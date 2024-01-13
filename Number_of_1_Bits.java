@@ -24,5 +24,17 @@ O(1) , O(1)= constant
 }
 O(logn) and O(logn)
 ============
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int numberOfBits = 0;
+        // removing 1 everytime and counting each bit everytime
+		while (n != 0) {
+			n = n & (n - 1);
+			numberOfBits++;
+		}
 
+		return numberOfBits;
+    }
+}
   
