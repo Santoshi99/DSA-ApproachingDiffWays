@@ -9,16 +9,13 @@ class Solution {
          Map<Character,Integer>  map2 = new HashMap<>();
 
          for(int i =0;i<word1.length();i++){
-             int num = map1.getOrDefault(word1.charAt(i),0);
-             map1.put(word1.charAt(i),num+1);
+             map1.put(word1.charAt(i),map1.getOrDefault(word1.charAt(i),0)+1);
 
-             num = map2.getOrDefault(word2.charAt(i),0);
-             map2.put(word2.charAt(i),num+1);
+             map2.put(word2.charAt(i),map2.getOrDefault(word2.charAt(i),0)+1);
          }
-         if(map1.size()!=map2.size()) return false;
-         if(!(map1.keySet().containsAll( map2.keySet()))) return false;
          
-         //Collection<Integer> list4 = ;
+         if(!(map1.keySet().equals( map2.keySet()))) return false;
+         
 
           for(int l : map1.values()){
               if(map2.values().contains(l)) map2.values().remove(l);
